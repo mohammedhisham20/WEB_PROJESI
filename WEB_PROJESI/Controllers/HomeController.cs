@@ -21,17 +21,21 @@ namespace WEB_PROJESI.Controllers
             _logger = logger;
         }
 
-        public IActionResult mySelf()
+        public IActionResult Me()
         {
             return View();
         }
 
-        public IActionResult myCountry()
+        public IActionResult Services()
         {
             return View();
         }
-       
- 
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
