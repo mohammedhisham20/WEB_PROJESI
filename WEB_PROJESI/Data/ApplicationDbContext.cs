@@ -7,7 +7,7 @@ using WEB_PROJESI.Models;
 
 namespace WEB_PROJESI.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<Course>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
