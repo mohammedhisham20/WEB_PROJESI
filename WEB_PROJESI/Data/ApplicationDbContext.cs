@@ -13,5 +13,6 @@ namespace WEB_PROJESI.Data
             : base(options)
         {
         }
+        public DbSet<WEB_PROJESI.Models.User> User { get; set; }
     }
 }

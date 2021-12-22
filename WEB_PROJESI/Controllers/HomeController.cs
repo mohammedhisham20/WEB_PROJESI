@@ -12,6 +12,7 @@ using WEB_PROJESI.Models;
 
 namespace WEB_PROJESI.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -20,14 +20,14 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Course> _signInManager;
+        private readonly UserManager<Course> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Course> userManager,
+            SignInManager<Course> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -51,7 +51,11 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
- 
+            [Required]
+           
+            [Display(Name = "Which Coure you want to watch (you can take one)")]
+            public string Courename { get; set; }
+
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
@@ -77,9 +81,10 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser {
+                var user = new Course {
                     UserName = Input.Email, 
-                    Email = Input.Email
+                    Email = Input.Email,
+                    CourseName=Input.Courename
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)

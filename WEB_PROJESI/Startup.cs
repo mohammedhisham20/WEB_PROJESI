@@ -43,11 +43,12 @@ namespace WEB_PROJESI
                     
 
                 });
-            services.AddIdentity<IdentityUser, IdentityRole>()
+            services.AddIdentity<Course, IdentityRole>()
                 .AddDefaultTokenProviders().AddDefaultUI()
                 //options => options.SignIn.RequireConfirmedAccount = true
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +77,7 @@ namespace WEB_PROJESI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=mySelf}/{id?}");
+                    pattern: "{controller=Home}/{action=Me}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
