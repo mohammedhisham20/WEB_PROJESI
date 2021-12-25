@@ -35,7 +35,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
                         </li>
-                        
+
                         @if (User.Identity.IsAuthenticated)
                         {
                             if (User.IsInRole("Admin"))
@@ -46,8 +46,12 @@
                             }
                         }
 
+
                     </ul>
-                    <partial name="_LoginPartial"  />
+                    <partial name="_LoginPartial" />
+                    <li class="nav-link">
+                        <partial name="_Culture" />
+                    </li>
                 </div>
             </div>
         </nav>
