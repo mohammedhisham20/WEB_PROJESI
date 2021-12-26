@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using WEB_PROJESI.Models;
-
 namespace WEB_PROJESI.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
@@ -47,7 +46,7 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
         public class InputModel
         {
            
-            [Required]
+            [Required(ErrorMessage ="Required")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -57,12 +56,12 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
             public string Courename { get; set; }
 
 
-            [Required]
+            [Required(ErrorMessage ="Required")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
             //[DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
-
+            [Required(ErrorMessage = "Required")]
             //[DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]

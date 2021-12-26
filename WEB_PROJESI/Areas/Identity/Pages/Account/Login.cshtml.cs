@@ -43,10 +43,11 @@ namespace WEB_PROJESI.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Display(Name = "Email")]
             [Required]
             [EmailAddress]
             public string Email { get; set; }
-
+            [Display(Name = "Password")]
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
