@@ -1,4 +1,5 @@
-﻿@{
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
     ViewBag.Title = "myCountry";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,9 +7,9 @@
 <section class="news text-center" id="work">
 
 
-    <h3 class="heading text-capitalize"> The courses I give </h3>
-   
-    
+    <h3 class="heading text-capitalize">@localizer["The courses I give"]</h3>
+
+
     <div class="row news-grids mt-5">
         <div class="col-lg-4 col-md-6 newsgrid1">
             <div class="newsgrid_tp new_grd">
@@ -16,7 +17,7 @@
                 <div class="news_bt">
                     <h4>C++</h4>
                     <p class="mt-4">
-                        Levels for beginners and advanced
+                        @localizer["Levels for beginners and advanced"]
                     </p>
                 </div>
             </div>
@@ -25,9 +26,9 @@
             <div class="newsgrid_tp new_grd1">
                 <img src="~/images/Arabic.jpg" alt="news image" class="img-fluid">
                 <div class="news_bt">
-                    <h4>Arabic</h4>
+                    <h4>@localizer["Arabic"]</h4>
                     <p class="mt-4">
-                        Levels for beginners and advanced
+                        @localizer["Levels for beginners and advanced"]
                     </p>
                 </div>
             </div>
@@ -36,18 +37,18 @@
             <div class="newsgrid_tp new_grd1">
                 <img src="~/images/English.jpg" alt="news image" class="img-fluid">
                 <div class="news_bt">
-                    <h4>English</h4>
+                    <h4>@localizer["English"]</h4>
                     <p class="mt-4">
-                        Levels for beginners and advanced
+                        @localizer["Levels for beginners and advanced"]
                     </p>
                 </div>
             </div>
         </div>
 
-    
-        <h3 class="heading text-capitalize" style="margin-top:25px;">if you want to start , Please Be A Member</h3>
 
-        <a style="margin-left:20px;" class="banner-button btn mt-5 scroll" asp-area="Identity" asp-page="/Account/Register">Regsiter</a>
+        <h3 class="heading text-capitalize" style="margin-top:25px;">@localizer["if you want to start , Please Be A Member"]</h3>
+
+        <a style="margin-left:20px;" class="banner-button btn mt-5 scroll" asp-area="Identity" asp-page="/Account/Register">@localizer["Regsiter"]</a>
 
 
     </div>
