@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,13 +17,13 @@
 </head>
 <body>
 
-   
+
 
 
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Me">Projem</a>
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Me">@localizer["My Project"]</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,10 +31,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ">
                         <li class="nav-item ">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Me">Me</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Me">@localizer["Me"]</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Services">@localizer["Services"]</a>
                         </li>
 
                         @if (User.Identity.IsAuthenticated)
@@ -41,7 +42,7 @@
                             if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Dashboard">Dashboard</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Admin" asp-action="Dashboard">@localizer["Dashboard"]</a>
                                 </li>
                             }
                         }
@@ -57,18 +58,18 @@
         </nav>
     </header>
 
-        
 
-   
+
+
 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-  
 
-    <footer >
+
+    <footer>
         <div class="cpy-right text-center">
             <div class="follow">
                 <ul class="social_section_1info">

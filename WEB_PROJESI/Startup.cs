@@ -7,12 +7,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Mvc.Razor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB_PROJESI.Data;
 using WEB_PROJESI.Models;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using System.Reflection;
 
 namespace WEB_PROJESI
 {
@@ -48,6 +53,23 @@ namespace WEB_PROJESI
                 //options => options.SignIn.RequireConfirmedAccount = true
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddLocalization(opt=> {
+                opt.ResourcesPath = "Resources";
+            });
+            services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
+            services.Configure<RequestLocalizationOptions>(
+                opt =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("en"),
+                        new CultureInfo("tr"),
+                        new CultureInfo("es")
+                    };
+                    opt.DefaultRequestCulture = new RequestCulture("en");
+                    opt.SupportedCultures = supportedCultures;
+                    opt.SupportedUICultures = supportedCultures;
+                });
             
         }
 
@@ -73,7 +95,14 @@ namespace WEB_PROJESI
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            //var supportedCultures = new[] { "en" ,"tr"};
+            //var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
+            //    .AddSupportedCultures(supportedCultures)
+            //    .AddSupportedUICultures(supportedCultures);
+            //app.UseRequestLocalization(localizationOptions);
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+                app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
