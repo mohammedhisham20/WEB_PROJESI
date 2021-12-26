@@ -1,5 +1,5 @@
 ﻿@page
-@model LoginModel 
+@model LoginModel
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @{
     ViewData["Title"] = "Log in";
@@ -27,7 +27,7 @@
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
-                           
+
                             @localizer["Remember me?"]
                         </label>
                     </div>

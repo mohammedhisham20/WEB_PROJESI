@@ -71,6 +71,8 @@ namespace WEB_PROJESI
                     opt.SupportedUICultures = supportedCultures;
                 });
             
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

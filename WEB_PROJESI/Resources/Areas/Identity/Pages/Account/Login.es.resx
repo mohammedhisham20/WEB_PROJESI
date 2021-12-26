@@ -123,6 +123,12 @@
   <data name="EmailAddress" xml:space="preserve">
     <value>Esta no es una dirección de correo electrónico</value>
   </data>
+  <data name="EmailIsNotValid" xml:space="preserve">
+    <value>El campo Correo electrónico no es una dirección de correo electrónico válida.</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>El campo de correo electrónico es obligatorio.</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>acceso</value>
   </data>
